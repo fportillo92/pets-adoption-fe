@@ -1,11 +1,33 @@
-<ion-card>
-  <ion-card-header>
-    <ion-card-subtitle>{{ publication.name }}</ion-card-subtitle>
-    <ion-card-title>Card Title</ion-card-title>
-  </ion-card-header>
+<div class="publications">
+  <ion-item>
+    <ion-avatar slot="start">
+        <img src="http://www.ukrworker.com/pub/skin/default-skin/img/avatar.png">
+    </ion-avatar>
+    <ion-label>
+        <h2>Refugio x</h2>
+    </ion-label>
+  </ion-item>
 
-  <ion-card-content>
-    Keep close to Nature's heart... and break clear away, once in awhile,
-    and climb a mountain or spend a week in the woods. Wash your spirit clean.
-  </ion-card-content>
-</ion-card>
+  <ion-slides pager=true scrollbar=true>
+    <ion-slide>
+      <img src="https://images.clarin.com/2019/10/28/el-perro-cuya-identidad-y___KdXU4OgZ_1256x620__2.jpg">
+    </ion-slide>
+    <ion-slide>
+      <img src="https://okdiario.com/img/2019/10/29/5-tips-para-calmar-a-un-perro-enfadado-655x368.jpg">
+    </ion-slide>
+  </ion-slides>
+
+  <ion-item lines="none">
+    <ion-icon slot="start" name="star-outline"></ion-icon>
+    <ion-text slot="end" class="text-location" color="dark">
+        <h5>Castelar</h5>
+      </ion-text>
+    <ion-icon slot="end" name="pin"></ion-icon>
+  </ion-item>
+
+  <ion-item>
+    <ion-label text-wrap>
+       Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque voluptas nobis doloribus fugiat, blanditiis mollitia illo reiciendis quam maiores alias eos recusandae dolores nemo autem vitae facilis tempora perspiciatis officia.
+    </ion-label>
+  </ion-item>
+</div>
