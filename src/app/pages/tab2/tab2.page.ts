@@ -16,6 +16,12 @@ export class Tab2Page implements OnInit {
   }
 
   ngOnInit() {
-    this.publications = this.publicationService.getPetPublications();
+    this.publicationService.getPetPublications().subscribe( (data: any) => {
+      this.publications = data.petPublications;
+    });
+    /*subscribe( (resp) => {
+      this.loading = resp.data.loading;
+      this.petsPublication = resp.data.petPublications;
+  });*/
   }
 }

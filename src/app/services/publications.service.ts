@@ -3,6 +3,7 @@ import gql from 'graphql-tag';
 import { Apollo } from 'apollo-angular';
 import { Observable } from 'apollo-link';
 import { PetPublication } from '../interfaces/interfaces';
+import { map } from 'rxjs/operators';
 
 const petPublicationsQuery = gql`
 {
@@ -19,17 +20,16 @@ const petPublicationsQuery = gql`
 })
 export class PublicationsService {
   public petsPublication: PetPublication[] = [];
+  loading: boolean = true;
 
   constructor(private apollo: Apollo) { }
 
   getPetPublications() {
-    this.apollo.watchQuery({
+    return this.apollo.watchQuery({
       query: petPublicationsQuery,
     })
-    .valueChanges.subscribe( ({data}) => {
-        this.petsPublication = data as PetPublication[];
-    });
-
-    return this.petsPublication;
+    .valueChanges.pipe( map( (result: any) => {
+        return result.data;
+    }));
   }
 }

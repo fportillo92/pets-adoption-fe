@@ -12,6 +12,8 @@ export class PublicationComponent implements OnInit {
 
   constructor() { }
   
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.publication);
+  }
 
 }
