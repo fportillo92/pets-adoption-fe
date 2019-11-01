@@ -4,16 +4,8 @@ import { Apollo } from 'apollo-angular';
 import { Observable } from 'apollo-link';
 import { PetPublication } from '../interfaces/interfaces';
 import { map } from 'rxjs/operators';
+import { listPublications } from '../operations/query';
 
-const petPublicationsQuery = gql`
-{
-  petPublications {
-    id
-    name
-    age
-    description
-  }
- }`;
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +18,7 @@ export class PublicationsService {
 
   getPetPublications() {
     return this.apollo.watchQuery({
-      query: petPublicationsQuery,
+      query: listPublications,
     })
     .valueChanges.pipe( map( (result: any) => {
         return result.data;
