@@ -11,7 +11,7 @@ export class PublicationComponent implements OnInit {
   @Input() publication: PetPublication;
 
   constructor() { }
-  
+
   ngOnInit() {}
 
 }

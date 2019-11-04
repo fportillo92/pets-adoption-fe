@@ -4,7 +4,7 @@ import { Apollo } from 'apollo-angular';
 import { Observable } from 'apollo-link';
 import { PetPublication } from '../interfaces/interfaces';
 import { map } from 'rxjs/operators';
-import { listPublications } from '../operations/query';
+import { PUBLICATIONS_QUERY } from '../operations/query';
 
 
 @Injectable({
@@ -12,13 +12,16 @@ import { listPublications } from '../operations/query';
 })
 export class PublicationsService {
   public petsPublication: PetPublication[] = [];
-  loading: boolean = true;
 
   constructor(private apollo: Apollo) { }
 
-  getPetPublications() {
+  getPetPublications(description: boolean = true, petRequests: boolean = true) {
     return this.apollo.watchQuery({
-      query: listPublications,
+      query: PUBLICATIONS_QUERY,
+      variables: {
+        description,
+        petRequests
+      }
     })
     .valueChanges.pipe( map( (result: any) => {
         return result.data;
