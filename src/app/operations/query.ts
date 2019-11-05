@@ -22,7 +22,7 @@ export const PUBLISHER_QUERY = gql`
                          $contact: Boolean!,
                          $description: Boolean!,
                          $petPublications: Boolean!) {
-        publisher {
+        publishers {
             id
             email
             type
@@ -33,5 +33,31 @@ export const PUBLISHER_QUERY = gql`
             contact @skip(if: $contact)
             description @skip(if: $description)
             petPublications @skip(if: $petPublications)
+        }
+    }`;
+
+export const ADOPTER_QUERY =  gql`
+    query adopterQuery($image: Boolean!,
+                         $socialNetworks: Boolean!,
+                         $contact: Boolean!,
+                         $petRequests: Boolean!) {
+        adopters {
+            id
+            email
+            image @skip(if: $image)
+            name
+            socialNetworks @skip(if: $socialNetworks)
+            contact @skip(if: $contact)
+            petRequests @skip(if: $petRequests)
+        }
+    }`;
+
+export const PET_REQUEST_QUERY = gql`
+    query petRequestQuery($state: string) {
+        petRequests {
+            id
+            petPublication
+            adopter
+            state @skip(if: $state)
         }
     }`;
