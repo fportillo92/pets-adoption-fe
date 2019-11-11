@@ -3,17 +3,23 @@ import { CommonModule } from '@angular/common';
 import { PublicationsComponent } from './publications/publications.component';
 import { IonicModule } from '@ionic/angular';
 import { PublicationComponent } from './publication/publication.component';
+import { PublicationDetailComponent } from './publication-detail/publication-detail.component';
+import { CreatePublicationComponent } from './create-publication/create-publication.component';
 
 
 
 @NgModule({
   declarations: [
     PublicationsComponent,
-    PublicationComponent
+    PublicationComponent,
+    PublicationDetailComponent,
+    CreatePublicationComponent
   ],
   exports: [
     PublicationsComponent,
-    PublicationComponent
+    PublicationComponent,
+    PublicationDetailComponent,
+    CreatePublicationComponent
   ],
   imports: [
     CommonModule,
